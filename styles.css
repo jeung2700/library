@@ -1,0 +1,87 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container{
+    height: 100vh;
+    overflow: hidden;
+    padding: 40px 100px;
+}
+
+main{
+    display: flex;
+    margin-top: 50px;
+    flex-direction: column;
+}
+
+.heading-container{
+    font-weight: bold;
+}
+
+.heading-container, .book-card{
+    font-size: 20px;
+    display: grid;
+    grid-template-columns: 50px 2fr 2fr 1fr 1fr 1fr;
+    height: 50px;
+    align-items: center;
+}
+
+.book-card:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.toggleStatusBtn, .addButton, .deleteButton{
+    border: none;
+    border-radius: 5px;
+    background-color: darkred;
+    color: white;
+    width: 60%;
+    height: 30px;
+    font-size: 1rem;
+}
+
+.read{
+    background-color: green;
+}
+
+.unread{
+    background-color: red;
+}
+
+.addButton{
+    background-color: lightseagreen;
+}
+
+dialog {
+  border: none;
+  border-radius: 8px;
+  padding: 30px;
+  width: 300px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+dialog form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+dialog label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+dialog input, dialog button {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
