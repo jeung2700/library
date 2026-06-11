@@ -1,16 +1,18 @@
 const myLibrary = [];
 
-function Book(name, author, pages, readStatus) {
-  this.name = name;
-  this.author = author;
-  this.pages = pages;
-  this.readStatus = readStatus;
-  this.uid = crypto.randomUUID();
-}
+class Book {
+  constructor(name, author, pages, readStatus) {
+    this.name = name;
+    this.author = author;
+    this.pages = pages;
+    this.readStatus = readStatus;
+    this.uid = crypto.randomUUID();
+  }
 
-Book.prototype.bookInfo = function () {
-  console.log(this.name, this.author, this.uid, this.pages, this.readStatus);
-};
+  bookInfo() {
+    console.log(this.name, this.author, this.uid, this.pages, this.readStatus);
+  }
+}
 
 function addBookToLibrary(name, author, pages, readStatus) {
   const newBook = new Book(name, author, pages, readStatus);
