@@ -85,9 +85,39 @@ document.querySelector("#close-btn").addEventListener("click", () => {
   dialog.close();
 });
 
+const titleInput = document.getElementById("title");
+const authorInput = document.getElementById("author");
+
+titleInput.addEventListener("input", () => {
+  if (!titleInput.value.trim()) {
+    titleInput.setCustomValidity("Title must be filled!");
+  } else {
+    titleInput.setCustomValidity("");
+  }
+});
+
+authorInput.addEventListener("input", () => {
+  if (!authorInput.value.trim()) {
+    authorInput.setCustomValidity("The author name must be filled!");
+  } else {
+    authorInput.setCustomValidity("");
+  }
+});
+
 const submitForm = document.querySelector("#book-dialog form");
 submitForm.addEventListener("submit", (event) => {
   event.preventDefault();
+
+  // Set custom messages before letting the form validate itself
+  titleInput.setCustomValidity(
+    titleInput.value.trim() ? "" : "Title must be filled!",
+  );
+  authorInput.setCustomValidity(
+    authorInput.value.trim() ? "" : "The author name must be filled!",
+  );
+
+  // Let the form's built-in validation show the messages
+  if (!submitForm.reportValidity()) return;
   const formData = new FormData(submitForm);
   const title = formData.get("title");
   const author = formData.get("author");
